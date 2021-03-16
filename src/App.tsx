@@ -10,13 +10,13 @@ import './styles/global.scss';
 import './styles/sidebar.scss';
 import './styles/content.scss';
 
-interface GenreResponseProps {
+export interface GenreResponseProps {
   id: number;
   name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
   title: string;
 }
 
-interface MovieProps {
+export interface MovieProps {
   Title: string;
   Poster: string;
   Ratings: Array<{

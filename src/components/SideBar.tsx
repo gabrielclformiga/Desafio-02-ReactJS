@@ -1,18 +1,26 @@
 import { Button } from './Button';
+import { GenreResponseProps } from '../App';
 
-export function SideBar(props) {
+interface SideBarProps {
+  genres: GenreResponseProps[];
+  selectedGenreId: number;
+  handleClickButton: any;
+}
+
+export function SideBar({ genres, selectedGenreId, handleClickButton }: SideBarProps) {
   return (
     <nav className="sidebar">
       <span>Watch<p>Me</p></span>
 
       <div className="buttons-container">
-        {props.genres.map(genre => (
+        {genres.map(genre => (
           <Button
             id={String(genre.id)}
             title={genre.title}
             iconName={genre.name}
-            onClick={() => props.handleClickButton(genre.id)}
-            selected={props.selectedGenreId === genre.id}
+            onClick={() => handleClickButton(genre.id)}
+            selected={selectedGenreId === genre.id}
+            key={genre.id}
           />
         ))}
       </div>
